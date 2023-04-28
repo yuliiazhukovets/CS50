@@ -1,0 +1,54 @@
+{% extends "layout.html"%}
+
+{% block title %}
+    Favorites
+{% endblock %}
+
+{% block main %}
+
+  <!--Alert -->
+  <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+    <strong>Hey there!</strong>
+    <p>These are the teams you saved earlier! </p>
+    <p>Click "Info" to be redirected to the personalized webpage of a particular team.</p>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <p class="welcome"> Welcome back, {{ username }}! </p>
+  <h1 class="header"> Favorites </h1>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">№</th>
+        <th scope="col">Team</th>
+        <th scope="col">Gender</th>
+        <th scopr="col>">More Info</th>
+        <th scope="col">Type</th>
+        <th scope="col">Rank</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for team in teams %}
+      <tr>
+        <th scope="row">{{ loop.index }}</th>
+        <td >{{ team.name }}</td>
+        <td>{{ team.women_men }}</td>
+        <td>
+          <form id="{{ team.team_info_id }}" action="/team_info" method="post">
+            <div class="form-check">
+              <input class="form_check_input btn btn-outline-dark" type="button" value="Info" onclick="document.getElementById('{{ team.team_info_id }}').submit()"></input>
+              <input type = "hidden"  name = "name" value = "{{ team.name }}"/>
+              <input type = "hidden" name = "gender" value = "{{ team.women_men }}"/>
+            </div>
+          </form>
+        </td>
+        <td>{{ team.varsity_club }}</td>
+        <td>{{ team.rank }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

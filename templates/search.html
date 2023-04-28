@@ -1,0 +1,119 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block main %}
+  <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+    <strong>Hey there!</strong>
+    <p>Click "Info" to be redirected to the personalized webpage of a particular team.</p>
+    <p>Click "Favorites" to save the team to your favorites tab! </p>
+    <p>After you click "Favorites" you will be redirected back to the search page. Go to Favorites tab to see the teams you saved.</p>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <p class="welcome"> Welcome, {{ username }}! </p>
+
+  <form action="/search" method="post">
+    <div class="form-group text-center">
+      <input autocomplete="off" autofocus class="form-control" name="team" placeholder="Team" type="text">
+      <p></p>
+      <div class="form-group text-center">
+        <button class="btn btn-outline-dark" type="submit">Search</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Order By
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+      <form action="/ranked" method="post">
+        <a class="dropdown-item" href="/ranked">By Rank</a>
+      </form>
+      <form action="/search" method="post">
+        <a class="dropdown-item" href="/search">Alphabetically (default)</a>
+      </form>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Filter by Gender
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+      <form action="/filter_men" method="get">
+        <a class="dropdown-item" href="/filter_men">Men</a>
+      </form>
+      <form action="/filter_women" method="get">
+        <a class="dropdown-item" href="/filter_women">Women</a>
+      </form>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Filter by Type
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+      <form action="/filter_varsity" method="get">
+        <a class="dropdown-item" href="/filter_varsity">Varsity</a>
+      </form>
+      <form action="/filter_club" method="get">
+        <a class="dropdown-item" href="/filter_club">Club</a>
+      </form>
+    </div>
+  </div>
+
+  <p class="note"> Ranks from season 2019-2020 </p>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">*</th>
+        <th scope="col">№</th>
+        <th scope="col">Team</th>
+        <th scope="col">Gender</th>
+        <th scope="col">More Info</th>
+        <th scope="col">Type</th>
+        <th scope="col">Rank</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for team in teams %}
+      <tr>
+        <td>
+        <form id="{{ team.favorite_id }}" action="/favorites" method="post">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" id="exampleRadios1" value="option1" onchange="document.getElementById('{{ team.favorite_id }}').submit()">
+            <label class="form-check-label" for="exampleRadios1">
+              Favorites
+            </label>
+            <input type = "hidden" name = "gender1" value = "{{ team.women_men }}"/>
+            <input type = "hidden" name = "name1" value = "{{ team.name }}"/>
+          </div>
+        </form>
+        </td>
+        <th scope="row">{{ loop.index }}</th>
+        <td >{{ team.name }}</td>
+        <td>{{ team.women_men }}</td>
+        <td>
+          <form id="{{ team.team_info_id }}" action="/team_info" method="post">
+            <div class="form-check">
+              <input class="form_check_input btn btn-outline-dark" type="button" value="Info" onclick="document.getElementById('{{ team.team_info_id }}').submit()"></input>
+              <input type = "hidden"  name = "name" value = "{{ team.name }}"/>
+              <input type = "hidden" name = "gender" value = "{{ team.women_men }}"/>
+            </div>
+          </form>
+        </td>
+        <td>{{ team.varsity_club }}</td>
+        <td>{{ team.rank }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

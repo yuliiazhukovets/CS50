@@ -1,0 +1,143 @@
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th
+{
+   background-color: #fbceb1;
+ }
+
+.welcome{
+   text-align: center !important;
+   font-size: 30px ;
+   color: black;
+    font-family: Georgia, serif;
+}
+
+main .form-control
+{
+    /* Center form controls */
+    display: inline-block;
+
+    /* Override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+.nav-item{
+    font-family: Georgia, serif;
+}
+
+.navbar-brand{
+    font-family: Georgia, serif;
+}
+
+
+th{
+    font-family: Georgia, serif;
+}
+
+td {
+    font-family: Georgia, serif;
+}
+
+footer .foot
+{
+    font-family: Georgia, serif;
+    text-align: center !important;
+    font-size: 12px ;
+    color: black;
+}
+
+main .glyphicon-star{
+    color: black !important;
+}
+
+main #starbtn{
+    color: white;
+}
+
+main .header{
+       text-align: left !important;
+   font-size: 30px ;
+   color: black;
+    font-family: Georgia, serif;
+}
+
+main #exampleRadios1{
+    color: yellow ;
+}
+
+main .custom-control-input:checked ~ .custom-control-label::before {
+  color: yellow;
+  border-color: #7B1FA2;
+  background-color: yellow;
+}
+
+main .note{
+    text-align: right !important;
+    font-size: 16px ;
+    color: black;
+    font-family: Georgia, serif;
+}
+
+.sub{
+    text-align: center !important;
+    font-size: 20px ;
+    color: black;
+    font-family: Georgia, serif;
+}
+
+main #map {
+  height: 400px;
+  /* The height is 400 pixels */
+  width: 100%;
+  /* The width is the width of the web page */
+}
+
+main .firstHeading
+{
+    font-size: 16px ;
+    color: black;
+    font-family: Georgia, serif;
+}
+
+main .det
+{
+    font-size: 12px ;
+    color: black;
+    font-family: Georgia, serif;
+}
+
+.info_link{
+    text-align: left !important;
+    font-size: 22px ;
+    color: black;
+    font-family: Georgia, serif;
+}
+
+main .dropdown
+{
+    display: inline;
+}
+
+main .btn btn-secondary dropdown-toggle
+{
+    display: inline;
+}
+
+img {
+  width: auto ;
+  max-width: 100% ;
+  height: auto ;
+}
+
+main .about
+{
+    font-size: 16px ;
+    color: black;
+    font-family: Georgia, serif;
+}
+
+main #intro
+{
+    font-size: 20px ;
+    color: black;
+    font-family: Georgia, serif;
+}

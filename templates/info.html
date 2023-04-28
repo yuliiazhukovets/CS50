@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ name }}
+{% endblock %}
+
+{% block main %}
+  <p class="welcome"> {{ name }} </p>
+  <p class="sub">{{gender}}, {{team_type}} </p>
+  <p class="sub"> {{ coach }}</p>
+
+  <a class="info_link" href="{{ link }}"> Link to the website of this team </a>
+    <p></p>
+    <p></p>
+  <table class="table table-striped">
+    <thead>
+      {% for rank in ranks %}
+      <tr>
+        <th scope="col">Rank in season 2019-2020</th>
+        <th scope="col">Rank in season 2018-2019</th>
+        <th scope="col">Rank in season 2017-2018</th>
+        <th scope="col">Rank in season 2016-2017</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>{{ rank.rank_19 }}</td>
+        <td>{{ rank.rank_18 }}</td>
+        <td>{{ rank.rank_18 }}</td>
+        <td>{{ rank.rank_18 }}</td>
+      </tr>
+     {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

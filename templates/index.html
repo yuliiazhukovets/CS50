@@ -1,0 +1,373 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Map
+{% endblock %}
+
+{% block main %}
+
+<script defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVmuW1sqW-6jiOtMaBLJhZ6G4eESxtBaM&callback=initMap">
+</script>
+
+<script>
+// Coordinates of all markers
+function initMap() {
+  const center = { lat: 40.6983, lng: -101.950226 };
+  const yale = { lat: 41.31107487, lng: -72.92763072};
+  const harvard = { lat: 42.37723272, lng: -71.11669229};
+  const ucb = {lat: 37.87009851, lng: -122.2621495};
+  const charles = {lat: 32.78351624, lng: -79.93752752};
+  const columbia = {lat:40.80729606, lng: -73.96178516};
+  const dart = {lat: 43.70443282, lng: -72.28943379};
+  const drexel = {lat: 39.95676071, lng: -75.19019087};
+  const duke = {lat: 36.00120079, lng: -78.93823334};
+  const gw = {lat: 38.89918845, lng: -77.04873868};
+  const mit ={lat: 42.35994035, lng: -71.094793};
+  const princ = {lat: 40.34292246, lng: -74.65592148};
+  const stan = {lat: 37.42740632, lng: -122.1704593};
+  const west = {lat:43.00970691, lng: -81.2743666};
+
+    // The map, centered at the center of the USA
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 4,
+    center: center,
+  });
+
+  // Marker and Info for Yale
+  // setting up a marker
+  const marker_yale = new google.maps.Marker({
+    position: yale,
+    map: map,
+    title: "Yale University"
+  });
+  // creating content for the info window
+  const content_yale = '<div id="content">'+
+    '<div id="siteNotice">'+
+    '</div>'+
+    '<h1 id="firstHeading" class="firstHeading">Yale University</h1>'+
+    '<div id="bodyContent">'+
+    '<p>New Haven, CT 06520</p>'+
+    '<p>Varsity</p>'+
+    '</div>'+
+    '</div>';
+  // settig up info window and adding a listener to it
+  const infowindow_yale = new google.maps.InfoWindow({
+    content: content_yale,
+  });
+  marker_yale.addListener("click", () => {
+    infowindow_yale.open(map, marker_yale);
+  });
+
+  // Marker and Info for Harvard
+  // setting up a marker
+    const marker_harvard = new google.maps.Marker({
+    position: harvard,
+    map: map,
+    title: "Harvard University"
+  });
+  // creating content for the info window
+  const content_harvard = '<div id="content">'+
+    '<div id="siteNotice">'+
+    '</div>'+
+    '<h1 id="firstHeading" class="firstHeading">Harvard University</h1>'+
+    '<div id="bodyContent">'+
+    '<p>Cambridge, MA</p>'+
+    '<p>Varsity</p>'+
+    '</div>'+
+    '</div>';
+  // settig up info window and adding a listener to it
+  const infowindow_harvard = new google.maps.InfoWindow({
+    content: content_harvard,
+  });
+  marker_harvard.addListener("click", () => {
+    infowindow_harvard.open(map, marker_harvard);
+  });
+
+  // Marker and Info for UCB
+  // setting up a marker
+    const marker_ucb = new google.maps.Marker({
+    position: ucb,
+    map: map,
+    title: "University of California-Berkeley"
+  });
+  // creating content for the info window
+  const content_ucb = '<div id="content">'+
+    '<div id="siteNotice">'+
+    '</div>'+
+    '<h1 id="firstHeading" class="firstHeading">University of California-Berkeley</h1>'+
+    '<div id="bodyContent">'+
+    '<p>Durant Hall, 101, MC 2930 Berkeley CA 94704 US, Berkeley, CA 94704</p>'+
+    '<p>Club</p>'+
+    '</div>'+
+    '</div>';
+  // settig up info window and adding a listener to it
+  const infowindow_ucb = new google.maps.InfoWindow({
+    content: content_ucb,
+  });
+  marker_ucb.addListener("click", () => {
+    infowindow_ucb.open(map, marker_ucb);
+  });
+
+  // Marker and Info for Charlestone
+  // setting up a marker
+    const marker_charles = new google.maps.Marker({
+    position: charles,
+    map: map,
+    title: "College of Charleston"
+  });
+  // creating content for the info window
+  const content_charles = '<div id="content">'+
+    '<div id="siteNotice">'+
+    '</div>'+
+    '<h1 id="firstHeading" class="firstHeading">College of Charleston</h1>'+
+    '<div id="bodyContent">'+
+    '<p>66 George St, Charleston, SC 29424</p>'+
+    '<p>Club</p>'+
+    '</div>'+
+    '</div>';
+  // settig up info window and adding a listener to it
+  const infowindow_charles = new google.maps.InfoWindow({
+    content: content_charles,
+  });
+  marker_charles.addListener("click", () => {
+    infowindow_charles.open(map, marker_charles);
+  });
+
+  // Marker and Info for Columbia
+  // setting up a marker
+  const marker_columbia = new google.maps.Marker({
+    position: columbia,
+    map: map,
+    title: "Columbia University"
+  });
+  // creating content for the info window
+  const content_columbia = '<div id="content">'+
+    '<div id="siteNotice">'+
+    '</div>'+
+    '<h1 id="firstHeading" class="firstHeading">Columbia University</h1>'+
+    '<div id="bodyContent">'+
+    '<p>New York, NY 10027</p>'+
+    '<p>Varsity</p>'+
+    '</div>'+
+    '</div>';
+  // settig up info window and adding a listener to it
+  const infowindow_columbia = new google.maps.InfoWindow({
+    content: content_columbia,
+  });
+  marker_columbia.addListener("click", () => {
+    infowindow_columbia.open(map, marker_columbia);
+  });
+
+  // Marker and Info for Dartmouth College
+  // setting up a marker
+  const marker_dart = new google.maps.Marker({
+    position: dart,
+    map: map,
+    title: "Dartmouth College"
+  });
+  // creating content for the info window
+  const content_dart = '<div id="content">'+
+    '<div id="siteNotice">'+
+    '</div>'+
+    '<h1 id="firstHeading" class="firstHeading">Dartmouth College</h1>'+
+    '<div id="bodyContent">'+
+    '<p>Hanover, NH 03755</p>'+
+    '<p>Varsity</p>'+
+    '</div>'+
+    '</div>';
+  // settig up info window and adding a listener to it
+  const infowindow_dart = new google.maps.InfoWindow({
+    content: content_dart,
+  });
+  marker_dart.addListener("click", () => {
+    infowindow_dart.open(map, marker_dart);
+  });
+
+  // Marker and Info for Drexel
+  // setting up a marker
+  const marker_drexel = new google.maps.Marker({
+    position: drexel,
+    map: map,
+    title: "Drexel University"
+  });
+  // creating content for the info window
+  const content_drexel = '<div id="content">'+
+    '<div id="siteNotice">'+
+    '</div>'+
+    '<h1 id="firstHeading" class="firstHeading">Drexel University</h1>'+
+    '<div id="bodyContent">'+
+    '<p>3141 Chestnut St, Philadelphia, PA 19104</p>'+
+    '<p>Varsity</p>'+
+    '</div>'+
+    '</div>';
+  // settig up info window and adding a listener to it
+  const infowindow_drexel = new google.maps.InfoWindow({
+    content: content_drexel,
+  });
+  marker_drexel.addListener("click", () => {
+    infowindow_drexel.open(map, marker_drexel);
+  });
+
+  // Marker and Info for Duke
+  // setting up a marker
+  const marker_duke = new google.maps.Marker({
+    position: duke,
+    map: map,
+    title: "Duke University"
+  });
+  // creating content for the info window
+  const content_duke = '<div id="content">'+
+    '<div id="siteNotice">'+
+    '</div>'+
+    '<h1 id="firstHeading" class="firstHeading">Duke University</h1>'+
+    '<div id="bodyContent">'+
+    '<p>Durham, NC 27708</p>'+
+    '<p>Club</p>'+
+    '</div>'+
+    '</div>';
+  // settig up info window and adding a listener to it
+  const infowindow_duke = new google.maps.InfoWindow({
+    content: content_duke,
+  });
+  marker_duke.addListener("click", () => {
+    infowindow_duke.open(map, marker_duke);
+  });
+
+  // Marker and Info for George Washington
+  // setting up a marker
+  const marker_gw = new google.maps.Marker({
+    position: gw,
+    map: map,
+    title: "George Washington University"
+  });
+  // creating content for the info window
+  const content_gw = '<div id="content">'+
+    '<div id="siteNotice">'+
+    '</div>'+
+    '<h1 id="firstHeading" class="firstHeading">George Washington University</h1>'+
+    '<div id="bodyContent">'+
+    '<p>2121 I St NW, Washington, DC 20052</p>'+
+    '<p>Varsity</p>'+
+    '</div>'+
+    '</div>';
+  // settig up info window and adding a listener to it
+  const infowindow_gw = new google.maps.InfoWindow({
+    content: content_gw,
+  });
+  marker_gw.addListener("click", () => {
+    infowindow_gw.open(map, marker_gw);
+  });
+
+  // Marker and Info for MIT
+  // setting up a marker
+  const marker_mit = new google.maps.Marker({
+    position: mit,
+    map: map,
+    title: "MIT"
+  });
+  // creating content for the info window
+  const content_mit = '<div id="content">'+
+    '<div id="siteNotice">'+
+    '</div>'+
+    '<h1 id="firstHeading" class="firstHeading">MIT</h1>'+
+    '<div id="bodyContent">'+
+    '<p>77 Massachusetts Ave, Cambridge, MA 02139</p>'+
+    '<p>Varsity</p>'+
+    '</div>'+
+    '</div>';
+  // settig up info window and adding a listener to it
+  const infowindow_mit = new google.maps.InfoWindow({
+    content: content_mit,
+  });
+  marker_mit.addListener("click", () => {
+    infowindow_mit.open(map, marker_mit);
+  });
+
+  // Marker and Info for Princeton
+  // setting up a marker
+  const marker_princ = new google.maps.Marker({
+    position: princ,
+    map: map,
+    title: "Princeton University"
+  });
+  // creating content for the info window
+  const content_princ = '<div id="content">'+
+    '<div id="siteNotice">'+
+    '</div>'+
+    '<h1 id="firstHeading" class="firstHeading">Princeton University</h1>'+
+    '<div id="bodyContent">'+
+    '<p>Princeton, NJ 08544</p>'+
+    '<p>Varsity</p>'+
+    '</div>'+
+    '</div>';
+  // settig up info window and adding a listener to it
+  const infowindow_princ = new google.maps.InfoWindow({
+    content: content_princ,
+  });
+  marker_princ.addListener("click", () => {
+    infowindow_princ.open(map, marker_princ);
+  });
+
+  // Marker and Info for Stanford
+  // setting up a marker
+  const marker_stan = new google.maps.Marker({
+    position: stan,
+    map: map,
+    title: "Stanford University"
+  });
+  // creating content for the info window
+  const content_stan = '<div id="content">'+
+    '<div id="siteNotice">'+
+    '</div>'+
+    '<h1 id="firstHeading" class="firstHeading">Stanford University</h1>'+
+    '<div id="bodyContent">'+
+    '<p>450 Serra Mall, Stanford, CA 94305</p>'+
+    '<p>Varsity</p>'+
+    '</div>'+
+    '</div>';
+  // settig up info window and adding a listener to it
+  const infowindow_stan = new google.maps.InfoWindow({
+    content: content_stan,
+  });
+  marker_stan.addListener("click", () => {
+    infowindow_stan.open(map, marker_stan);
+  });
+
+  // Marker and Info for Western Ontario
+  // setting up a marker
+  const marker_west = new google.maps.Marker({
+    position: west,
+    map: map,
+    title: "Western Ontario"
+  });
+  // creating content for the info window
+  const content_west = '<div id="content">'+
+    '<div id="siteNotice">'+
+    '</div>'+
+    '<h1 id="firstHeading" class="firstHeading">Western Ontario</h1>'+
+    '<div id="bodyContent">'+
+    '<p class="det">1151 Richmond St, London, ON N6A 3K7, Canada</p>'+
+    '<p class="det">Varsity</p>'+
+    '</div>'+
+    '</div>';
+  // settig up info window and adding a listener to it
+  const infowindow_west = new google.maps.InfoWindow({
+    content: content_west,
+  });
+  marker_west.addListener("click", () => {
+    infowindow_west.open(map, marker_west);
+  });
+}
+</script>
+
+  <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+    <strong>Hey there!</strong>
+    <p>Here are some of the college squash teams!</p>
+    <p>Click on the marker to see the name of a university and its address! </p>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div id="map"></div>
+{% endblock %}
